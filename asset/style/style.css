@@ -13,8 +13,11 @@ body{
     position: relative;
 }#wrapper #header{
     width: 100%;
-    height: 80px;
+    min-height: 80px;
     padding-top: 15px;
+    position: fixed;
+    top: 0;
+    z-index: 99;
     background-color: #f78616;
 }#wrapper .wrap{
     width: 80%;
@@ -100,6 +103,8 @@ body{
     width: 100%;
     padding-bottom: 60px;
     text-align: center;
+}#wrapper .judul h1{
+    font-weight: bold;
 }#wrapper #apa .box .frame{
     width: 100%;
     text-align: center;
@@ -112,4 +117,42 @@ body{
     cursor: pointer;
 }#wrapper #apa .box{
     text-align: center;
+}#wrapper .a{
+    width: 100%;
+    display: block;
+    height: 80px;
+}#pelajari{
+    width: 100%;
+    min-height: 200px;
+    background-color: #fcd7b3;
+    padding: 50px 0;
+}#pelajari .frame{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    overflow: hidden;
+}#pelajari .frame img{
+    min-width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+}footer{
+    width: 100%;
+    padding: 50px 0;
+    padding-bottom: 30px;
+    min-height: 100px;
+    background-color: #444;
+    color: #ddd;
+}footer a{
+    text-align: center;
+    color: #ddd;
+}footer .menu{
+    width: 100%;
+    text-align: center;
+}footer .menu a{
+    padding: 0 10px;
+    color: #ddd;
+}footer .menu a:hover{
+    text-decoration: none;
+    opacity: 0.5;
 }

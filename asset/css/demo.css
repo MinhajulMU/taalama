@@ -1,0 +1,35 @@
+html, body {
+  overflow-x: hidden;
+}
+
+/* Lists */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+#container {
+  position: relative;
+  padding: 20px 40px;
+  padding-top: 80px;
+}
+
+/* Menu Button */
+.menu-btn {
+  width: 50px;
+  font-size: 150%;
+  padding: 10px;
+  margin-bottom: 30px;
+  float: right;
+  color: #FFF;
+  text-align: right;
+  cursor: pointer;
+  border: 0px;
+  background: transparent;   
+
+}
+.menu-btn:hover {
+  opacity: 0.6;
+}
+
