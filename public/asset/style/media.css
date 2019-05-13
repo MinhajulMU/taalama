@@ -1,0 +1,35 @@
+@media (max-width: 480px) {
+    #wrapper #banner .bg2 img{
+        width: 150px;
+    }#wrapper #banner .bg2 h1{
+        width: 90%;
+        font-size: 150%;
+    }#wrapper #banner .bg2 .btn{
+        width: 200px;
+        color: #fff;
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 140%;
+    }#wrapper #cara .maskot img{
+        width: 100px;
+    }#wrapper #apa .box .frame img{
+        width: 100px;
+    }#wrapper .btns2{
+        float: none;
+    }#wrapper .ss{
+        width: 100%; margin: 0 auto;margin-top: -50px;
+    }
+  }
+  
+  @media (min-width: 480px) and (max-width: 768px) {
+    
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    
+  }
+  @media (min-width: 992px) and (max-width: 1200px) {
+  }
+  @media (min-width: 1200px) {
+  
+  }
+  

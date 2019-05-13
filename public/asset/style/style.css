@@ -1,0 +1,268 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: #444;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #fff;
+}
+#wrapper{
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+}#wrapper #header{
+    width: 100%;
+    min-height: 80px;
+    padding-top: 15px;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    background-color: #f78616;
+}#wrapper .wrap{
+    width: 80%;
+    margin: 0 auto;
+}#wrapper #header nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}#wrapper #header nav{
+    text-align: right;
+}#wrapper #header nav ul li{
+    display: inline-block;
+    padding: 5px;
+}#wrapper #header nav ul li a{
+    color: #fff;
+    padding: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+}#wrapper #header .logo{
+    padding-top: 5px;
+}#wrapper #header nav ul li a:hover{
+    text-decoration: none;
+    opacity: 0.7;
+}#wrapper #banner{
+    width: 100%;
+    height: 550px;
+    background-image: url('../images/slide/2.jpg');
+    background-size: cover;
+    background-position-y: center;
+    position: relative;
+}#wrapper #banner .bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0.4;
+    z-index: 2;
+}#wrapper #banner .bg2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+}#wrapper #banner .bg2 img{
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+}#wrapper #banner .bg2 h1{
+    color: #fff;
+    width: 70%;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 20px;
+}#wrapper #banner .bg2 .btn{
+    width: 230px;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 170%;
+}#wrapper #cara{
+    padding: 30px 0;
+    width: 100%;
+    min-height: 200px;
+    background-color: #fcd7b3;
+}#wrapper #cara .maskot img{
+    width: 130px;
+    margin: 0 auto;
+}#wrapper #cara .maskot{
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+}#wrapper #cara h2{
+    font-weight: bold;
+}#wrapper #cara p{
+    color: #444;
+}#wrapper #apa{
+    width: 100%;
+    padding: 50px 0;
+    min-height: 400px;
+    background-color: #fff;
+}#wrapper .judul{
+    width: 100%;
+    padding-bottom: 60px;
+    text-align: center;
+}#wrapper .judul h1{
+    font-weight: bold;
+}#wrapper #apa .box .frame{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    padding-bottom: 30px;
+}#wrapper #apa .box .frame img{
+    width: 120px;
+    margin: 0 auto;
+}#wrapper #apa .box:hover{
+    cursor: pointer;
+}#wrapper #apa .box{
+    text-align: center;
+}#wrapper .a{
+    width: 100%;
+    display: block;
+    height: 80px;
+}#pelajari{
+    width: 100%;
+    min-height: 200px;
+    background-color: #fcd7b3;
+    padding: 50px 0;
+}#pelajari .frame{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    overflow: hidden;
+}#pelajari .frame img{
+    min-width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+}footer{
+    width: 100%;
+    padding: 50px 0;
+    padding-bottom: 30px;
+    min-height: 100px;
+    background-color: #444;
+    color: #ddd;
+}footer a{
+    text-align: center;
+    color: #ddd;
+}footer .menu{
+    width: 100%;
+    text-align: center;
+}footer .menu a{
+    padding: 0 10px;
+    color: #ddd;
+}footer .menu a:hover{
+    text-decoration: none;
+    opacity: 0.5;
+}#wrapper #saya{
+    width: 100%;
+    min-height: 500px;
+    padding-bottom: 50px;
+    background-color: #fff;
+}#wrapper #saya .frame{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}#wrapper #saya .box{
+    padding: 30px 0;
+    border-radius: 4px;
+}#wrapper #saya .frame img{
+    width: 100px;
+    margin: 0 auto;
+}#wrapper #saya .box{
+    text-align: center;
+}#wrapper #saya .box h3{
+    font-weight: bold;
+    color: #444;
+}#wrapper #saya a:hover{
+    text-decoration: none;
+}#wrapper #saya .box:hover{
+    background-color: #fcbe4b;
+    color: #fff;
+    
+}#wrapper #saya .box:hover h3{
+    color: #fff;
+}#wrapper #saya .box1{
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: solid 1px #ddd;
+    min-height: 200px;
+    box-shadow: 3px 3px 3px #ddd;
+}#wrapper #saya .box1 .frame img{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}#wrapper #saya .box1 .frame{
+    min-height: 150px;
+}#wrapper #saya .aa{
+    color: #444;
+}#wrapper #saya .aa:hover{
+    text-decoration: none;
+}#wrapper #saya .box1:hover{
+    background-color: #fcbe4b;
+    color: #fff;
+}#wrapper #saya .active{
+    background-color: #fcbe4b;
+    color: #fff;
+}#wrapper #cek{
+    width: 100%;
+    padding: 30px 0;
+    min-height: 100px;
+    border-top: solid 1px #ddd;
+}#wrapper .btns{
+    padding: 20px;
+    min-width: 200px;
+    color: #444;
+    font-weight: bold;
+    border:solid 1px #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color:  #ddd;
+}#wrapper .btns2{
+    margin-bottom: 10px;
+    padding: 20px;
+    min-width: 200px;
+    color: #fff;
+    font-weight: bold;
+    border:solid 1px #ddd;
+    border-radius: 5px;
+    float: right;
+    border:none;
+    background-color:  #f78616;
+}#wrapper .btns2:hover,#wrapper .btns:hover {
+    opacity: 0.6;
+}#wrapper .benar{
+    background-color: #7df442;
+
+}#wrapper .aaa img{
+    width: 60px;
+    margin-top: 5px;
+}#wrapper .salah{
+    background-color: #f76079;
+
+}#wrapper .circle{
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+    border: solid 4px #fcbe4b;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -50px;
+    color: #f78616;
+    padding: 20px;
+    font-size: 170%;
+    overflow: hidden;
+}#wrapper .ss{
+    width: 80%; margin: 0 auto;margin-top: -50px;
+}#wrapper .daftar{
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 0;
+}
