@@ -11,7 +11,7 @@
         </div>
         <div class="row" style="margin-top: -30px;">
             <div class="col-md-4">
-                <a href="/question">
+                <a href="/materi">
                     <div class="box">
                         <div class="frame">
                             <img src="asset/images/icon/quran.png" alt="">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/question">
+                <a href="/materi">
                     <div class="box">
                         <div class="frame">
                             <img src="asset/images/icon/cat.png" alt="">
@@ -33,7 +33,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/question">
+                <a href="/materi">
                     <div class="box">
                         <div class="frame">
                             <img src="asset/images/icon/allah-word.png" alt="">
@@ -44,7 +44,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/question">
+                <a href="/materi">
                     <div class="box">
                         <div class="frame">
                             <img src="asset/images/icon/family.png" alt="">
@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/question">
+                <a href="/materi">
                     <div class="box">
                         <div class="frame">
                             <img src="asset/images/icon/pencil-case.png" alt="">
@@ -66,7 +66,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/question">
+                <a href="/materi">
                     <div class="box">
                         <div class="frame">
                             <img src="asset/images/icon/acupuncture.png" alt="">

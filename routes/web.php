@@ -23,6 +23,9 @@ Route::get('/topik', function () {
 Route::get('/question', function () {
     return view('front.question');
 });
+Route::get('/materi', function () {
+    return view('front.materi');
+});
 Route::get('/benar', function () {
     return view('front.benar');
 });

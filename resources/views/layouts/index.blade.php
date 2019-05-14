@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="logo">
-                            <a href="#">
+                            <a href="/">
                                 <img src="asset/images/logo/logo.png" alt="">
                             </a>
                         </div>
