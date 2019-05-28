@@ -19,6 +19,7 @@ class Option extends Migration
             $table->integer('soal_id')->unsigned();
             $table->string('title');
             $table->string('icon');
+            $table->boolean('is_true')->default(0);
             $table->timestamps();
         });
     }

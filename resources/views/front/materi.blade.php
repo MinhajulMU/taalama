@@ -7,12 +7,15 @@
     <div class="wrap">
         <div class="judul">
             <br>
-            <h1>Nama-Nama Binatang</h1>
+            <h1>{{$materi[0]->title}} </h1>
         </div>
        <div class="content" >
-        <div class="frame" style="width: 100%;margin-top: -50px; padding: 10px;text-align: center;">
-                <img src="asset/images/slide/3.png" alt="" style="width: 400px;">
-        </div>
+        {{-- <div class="frame" style="width: 100%;margin-top: -50px; padding: 10px;text-align: center;">
+                <img src=" asset/images/slide/3.png" alt="" style="width: 400px;">
+        </div> --}}
+        <?php 
+        echo $materi[0]->content; 
+        ?>
            
        </div>
     </div>

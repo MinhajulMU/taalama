@@ -10,71 +10,20 @@
             <h1>Saya Ingin Belajar</h1>
         </div>
         <div class="row" style="margin-top: -30px;">
-            <div class="col-md-4">
-                <a href="/materi">
-                    <div class="box">
-                        <div class="frame">
-                            <img src="asset/images/icon/quran.png" alt="">
+            @foreach ($topik as $item)
+                <div class="col-md-4">
+                <a href="/materi/{{$item->id}}" style="text-decoration:none;">
+                        <div class="box">
+                            <div class="frame">
+                                <img src="{{asset('storage/'.$item->icon)}} " alt="">
+                            </div>
+                            <h3>{{$item->nama_topik}} </h3>
                         </div>
-                        <h3>Huruf Hijaiyah</h3>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>                
+            @endforeach
 
-            <div class="col-md-4">
-                <a href="/materi">
-                    <div class="box">
-                        <div class="frame">
-                            <img src="asset/images/icon/cat.png" alt="">
-                        </div>
-                        <h3>Nama-Nama Binatang</h3>
-                    </div>
-                </a>
-            </div>
 
-            <div class="col-md-4">
-                <a href="/materi">
-                    <div class="box">
-                        <div class="frame">
-                            <img src="asset/images/icon/allah-word.png" alt="">
-                        </div>
-                        <h3>Asmaul Husna</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4">
-                <a href="/materi">
-                    <div class="box">
-                        <div class="frame">
-                            <img src="asset/images/icon/family.png" alt="">
-                        </div>
-                        <h3>Nama Anggota Keluarga</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4">
-                <a href="/materi">
-                    <div class="box">
-                        <div class="frame">
-                            <img src="asset/images/icon/pencil-case.png" alt="">
-                        </div>
-                        <h3>Peralatan Sekolah</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4">
-                <a href="/materi">
-                    <div class="box">
-                        <div class="frame">
-                            <img src="asset/images/icon/acupuncture.png" alt="">
-                        </div>
-                        <h3>Nama Anggota Tubuh</h3>
-                    </div>
-                </a>
-            </div>
 
         </div>
     </div>

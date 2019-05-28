@@ -39,7 +39,7 @@
                     <div class="col-3">
                         <div class="logo">
                             <a href="/">
-                                <img src="asset/images/logo/logo.png" alt="">
+                                <img src="{{asset('asset/images/logo/logo.png')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -49,12 +49,44 @@
                                 <li>
                                     <a href="/">Home</a>
                                 </li>
-                                <li>
-                                    <a href="/register">Register</a>
-                                </li>
-                                <li>
-                                    <a href="/login">Login</a>
-                                </li>
+                                @if (Auth::check())
+                                    @if (Auth::user()->hasRole('Administrator'))
+                                        <li>
+                                            <a href="/adashboard">{{Auth::user()->name}} </a>
+                                        </li>
+                                        <li>
+                                            <a  href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    <i class="fi-power"></i> <span>Logout</span>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="/home">{{Auth::user()->name}}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    <i class="fi-power"></i> <span>Logout</span>
+                                </a>
+                                        </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>                              
+                                    @endif
+                                @else
+                                    <li>
+                                        <a href="/register">Register</a>
+                                    </li>
+                                    <li>
+                                        <a href="/login">Login</a>
+                                    </li>
+                                @endif
                             </ul>
                         </nav>
                          <button class="menu-btn d-block d-sm-block d-md-none">&#9776;</button>

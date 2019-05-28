@@ -18,7 +18,7 @@ class userSeed extends Seeder
             'id'=>1,
             'name'=>'Moh Minhajul M',
             'email'=>'admin@minhajul.com',
-            'password'=>encrypt('12345678'),
+            'password'=>bcrypt('12345678'),
             'remember_token'=>NULL,
             'created_at'=>'2019-01-14 06:35:28',
             'updated_at'=>'2019-01-14 06:35:28'
