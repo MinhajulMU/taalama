@@ -15,7 +15,7 @@ class soalSeed extends Seeder
         $i = 0;
         DB::table('soal')->truncate();
         $faker = Faker::create();
-        while($i < 50){
+        while($i < 45){
             App\Model\Soal::create([
                 'topik_id'=>rand(1,9),
                 'title' => $faker->sentence

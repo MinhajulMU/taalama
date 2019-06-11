@@ -15,19 +15,34 @@ Route::get('/', function () {
     return view('front.index');
 });
 Route::get('/tes', function () {
-    return view('front.index');
+     $data = \App\Model\Soal::where('topik_id',7)->get();
+     $soal = [];
+     foreach ($data as $key) {
+             foreach ($key->option as $keys) {
+                # code...
+            }
+     }
+     return $data;
 });
 Route::get('/topik', function () {
     $data['topik'] = \App\Model\Topik::all();
     return view('front.topik',$data);
 });
-Route::get('/question', function () {
-    return view('front.question');
+
+Route::group(['middleware' => 'auth'],function(){
+    Route::get('/materi/{id}', function ($id) {
+        $data['materi'] = \App\Model\Materi::where('topik_id',$id)->get();
+        if (count($data['materi']) > 0) {
+            # code...
+            return view('front.materi',$data);
+        }else{
+            return abort(404);
+        }
+        
+    });
+    Route::get('/question/{id}','FrontController@question');
 });
-Route::get('/materi/{id}', function ($id) {
-    $data['materi'] = \App\Model\Materi::where('topik_id',$id)->get();
-    return view('front.materi',$data);
-});
+
 Route::get('/benar', function () {
     return view('front.benar');
 });

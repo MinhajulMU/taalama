@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-6">
                     <div>
-                        <a href="/question">
+                        <a href="/question/{{$materi[0]->topik_id}}">
                             <button class="btns2">Lanjut</button>
                         </a>
                     </div>

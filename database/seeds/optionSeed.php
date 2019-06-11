@@ -15,9 +15,9 @@ class optionSeed extends Seeder
         $i = 0;
         DB::table('option')->truncate();
         $faker = Faker::create();
-        while($i < 9){
+        while($i < 130){
             App\Model\Option::create([
-                'soal_id'=>rand(1,50),
+                'soal_id'=>rand(1,45),
                 'title' => $faker->sentence,
                 'icon' => $faker->sentence,
             ]);
