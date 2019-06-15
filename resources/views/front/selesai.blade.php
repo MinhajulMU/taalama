@@ -7,14 +7,14 @@
     <div class="wrap">
         <div class="judul">
             <br>
-            <h1>Pelajaran Selesai</h1>
+            <h1>Pelajaran Selesai </h1>
         </div>
     <div class="circle" >
         <span>skor</span>
-        <span style="font-size: 350%;display: block;">75</span>
+        <span style="font-size: 350%;display: block;">{{$nilai['score']}}</span>
     </div>
     <div class="text-center">
-        <h3><b>3/5 Jawaban Benar</b></h3>
+        <h3><b>{{$topik}}</b></h3>
     </div>
     <div class="text-center">
         <a href="/topik">

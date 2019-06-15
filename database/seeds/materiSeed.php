@@ -13,16 +13,17 @@ class materiSeed extends Seeder
     {
         //
         DB::table('materi')->truncate();
-        $i = 0;
         $faker = Faker::create();
-        while($i < 9){
+        $topik = \App\Model\Topik::all();
+        foreach ($topik as $key) {
+            # code...
             App\Model\Materi::create([
-                'topik_id'=>rand(1,9),
+                'topik_id'=>$key->id,
                 'title' => $faker->sentence,
                 'content' => $faker->text,
                 'slug'=> strtolower(str_replace(" ","-",$faker->sentence))
             ]);
-            $i++;
         }
+
     }
 }

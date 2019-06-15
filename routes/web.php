@@ -25,7 +25,7 @@ Route::get('/tes', function () {
      return $data;
 });
 Route::get('/topik', function () {
-    $data['topik'] = \App\Model\Topik::all();
+    $data['topik'] = \App\Model\Topik::inRandomOrder()->get();
     return view('front.topik',$data);
 });
 
@@ -41,6 +41,14 @@ Route::group(['middleware' => 'auth'],function(){
         
     });
     Route::get('/question/{id}','FrontController@question');
+    Route::group(['prefix'=>'ujian','middleware'=>'auth'],function(){
+       Route::post('submit','FrontController@submit');
+    });
+    Route::get('/nilai/{id}', function ($id) {
+        $data['nilai'] = \App\Model\trackUser::where('id',$id)->first();
+        $data['topik'] = $data['nilai']->topik->nama_topik;
+        return view('front.selesai',$data);
+    });
 });
 
 Route::get('/benar', function () {
@@ -55,9 +63,7 @@ Route::get('/daftar', function () {
 Route::get('/masuk', function () {
     return view('front.login');
 });
-Route::get('/selesai', function () {
-    return view('front.selesai');
-});
+
 
 Route::group(['middleware' => 'auth','role:Administrator'], function(){
     Route::get('/adashboard',function(){

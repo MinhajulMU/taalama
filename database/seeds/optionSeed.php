@@ -12,16 +12,24 @@ class optionSeed extends Seeder
     public function run()
     {
         //
-        $i = 0;
+        
         DB::table('option')->truncate();
         $faker = Faker::create();
-        while($i < 130){
-            App\Model\Option::create([
-                'soal_id'=>rand(1,45),
-                'title' => $faker->sentence,
-                'icon' => $faker->sentence,
-            ]);
-            $i++;
+        $soal = \App\Model\Soal::all();
+        
+        foreach ($soal as $key) {
+            # code...
+            $i = 1;
+            while($i < 4){
+                App\Model\Option::create([
+                    'soal_id'=>$key->id,
+                    'title' => $faker->sentence,
+                    'icon' => $faker->sentence,
+                    'is_true' => $i%3 == 0? 1: 0
+                ]);
+                $i++;
+            }
         }
+
     }
 }

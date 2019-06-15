@@ -5,9 +5,9 @@
 @section('content')
 <section id="saya">
     <div class="wrap">
-        <div class="judul">
+        <div class="judul"> 
             <br>
-            <h1>'Iwazzatun' dalam bahasa Indonesia Adalah ... </h1>
+            <h1>'Iwazzatun' dalam bahasa Indonesia Adalah ...</h1>
         </div>
         <div class="row options" style="margin-top :-30px;">
                 
@@ -18,16 +18,19 @@
     <div class="wrap">
         <div class="row">
             <div class="col-md-6">
-                <div id="prev-question">
+                {{-- <div id="prev-question">
                     <a href="#">
                         <button class="btns">Previous</button>
                     </a>
+                </di v> --}}
+                <div id="count-soal" style="font-size:200%;font-weight:bold;color:#999;">
+                    
                 </div>
             </div>
             <div class="col-md-6">
                 <div id="next-question">
                     <a href="#">
-                        <button class="btns2">Next</button>
+                        <button class="btns2">Next </button>
                     </a>
                 </div>
                 <div style="clear:both;"></div>
@@ -39,35 +42,20 @@
 @endsection
 @push('scripts')
     <script>
-           var lembar_soal = JSON.parse(`{!! $question !!}`);
+            var skor = 0;
+            var topik_id = window.location.pathname.split('/')[2];
+            var lembar_soal = JSON.parse(`{!! $question !!}`);
             if(localStorage.getItem('soal_current_number') == null){
                 localStorage.setItem('soal_current_number',0);
             }
             let current_number = parseInt(localStorage.getItem('soal_current_number'));
-            let pilgan_names = ['A','B','C','D'];
 
             function loadSoal(){
-                 console.log(current_number,lembar_soal.length - 1);
-                if(current_number == 0){
-                    //current_number = 0;
-                    $("#next-question").removeClass('invisible');
-                    $("#prev-question").addClass('invisible');
-                    console.log('a');
-                }else if(current_number == lembar_soal.length - 1){
-                    //current_number = lembar_soal.soal.length - 1;
-                    $("#prev-question").removeClass('invisible');
-                    $("#next-question").addClass('invisible');
-                    console.log('b');
-                }else{
-                    $("#prev-question").removeClass('invisible');
-                    $("#next-question").removeClass('invisible');
-                }
+                console.log(current_number,lembar_soal.length - 1);
                 let soal = lembar_soal[current_number];
-                let jawaban = soal.option;
-                //console.log(soal.option);
-                
-
-
+                let jawaban = soal.option;           
+                //load question
+                $("#saya .judul h1").html(soal['title']);
                 $(".options").html('');
                 let i = 0;
                 jawaban.slice(-3).forEach(function(value){
@@ -86,72 +74,78 @@
                         i++;
                 });
                 
-                $("#saya .judul h1").html(soal['title']);
-                // if(jawaban !== null){
-                    
-                //     jawab(parseInt(jawaban));
-                //     console.log(parseInt(jawaban));
-                //     console.log('jawab');
-                // }
-            }
-
-            function init(){
-                var html = "";
-                let flag = false;
-                for(let i=0;i<lembar_soal.length;i++){
-                    if(!flag){
-                        if(lembar_soal.soal[i].jawaban == null){
-                            current_number = i;
-                            flag = true;
-                        }
-                    }
-                    // html+=(`<button class="btn `+(lembar_soal.soal[i].jawaban !== null ? 'btn-success' : 'btn-secondary') +` btn-pilgan" id="btn-pilgan-`+i+`" type="button" onclick="pilihSoal(`+i+`)">
-                    //         <span>`+(i + 1)+`</span>
-                    //         <span class="pilgan">`+(lembar_soal.soal[i].jawaban !== null ? pilgan_names[lembar_soal.soal[i].jawaban] : '')+`</span>
-                    //     </button>`);
-                }
+                $('#count-soal').html('<span style="color: orange;font-size:200%;">'+ (current_number+1) +'</span> / '+lembar_soal.length+'');
                 
-                // $("#number-btn-container").html(html);
-                // pilihSoal(current_number);
             }
+            function send_result() {
+                let nilai = (skor/lembar_soal.length)*100;
+
+                $.ajax({
+                        type: "POST",
+                        url: 'http://localhost:8000/ujian/submit',
+                        data: {
+                            user_id: {{Auth::user()->id}},
+                            nilai: nilai,
+                            topik_id: topik_id
+                        },
+                        method: 'post',
+                        success: function (response) {
+                            console.log(response.id);
+                            window.location.href = "http://localhost:8000/nilai/"+response.id;
+                        },
+                        error: function(error){
+                            console.log(error);
+                        }
+                });                
+            }
+            
 
             function jawab(id_jawaban,id_soal){
-                // let a = lembar_soal.soal[id_soal];
+
+
                 if (lembar_soal[id_soal].option[id_jawaban]['is_true'] == 1) {
+                    skor = skor+1;   
                     Swal({
                         title: 'Jawaban Anda Benar!',
                         text: 'Selamat Jawaban Anda Benar',
                         type: 'success',
                         confirmButtonText: 'Ok'
                         }).then(function(){
-                            if (current_number != lembar_soal.length - 1) {
-                                pilihSoal(current_number+1);                                
-                            }
+                            if (current_number+1 == lembar_soal.length) {
+                                send_result();
+                            }else{
+                                pilihSoal(current_number+1);
+                            }                            
 
                         })
-                    console.log('benar');
+
                 }else{
+                    let options = lembar_soal[id_soal].option;
+                    let benar = '';
+                    options.forEach(element => {
+                        if (element['is_true'] == 1) {
+                            benar = element['title'];
+                        }
+                    });
                     Swal({
                         title: 'Jawaban Anda Salah!',
-                        text: 'Jawaban ',
+                        html: 'Jawaban yang benar adalah <b style="color:green;">'+benar+'</b>',
                         type: 'error',
                         confirmButtonText: 'Ok'
                         }).then(function(){
-                            if (current_number != lembar_soal.length - 1) {
-                                pilihSoal(current_number+1);                                
+                            if (current_number+1 == lembar_soal.length) {
+                                send_result();
+                            }else{
+                                pilihSoal(current_number+1);
                             }
                         })
 
-                    console.log('salah');
+
                 }
                 $('.box1').removeClass('active');
                 $('.option'+id_jawaban).addClass('active');
+                console.log('skor '+skor);                
                 
-                
-                $("#pilgan li").removeClass('active');
-                $("#pilgan #pilgan-"+id_jawaban).addClass('active');
-                $("#btn-pilgan-"+current_number).addClass('btn-success');
-                $("#btn-pilgan-"+current_number+" span.pilgan").html(pilgan_names[id_jawaban]);
             }
 
             function pilihSoal(soal_ke){
@@ -160,17 +154,35 @@
             }
 
             $(document).ready(function(event){
-//                init();
-//                console.log(lembar_soal);
                 loadSoal();
-//                let soal = lembar_soal;
                 $("#next-question").click(function(){
-                    pilihSoal(current_number+1);
+                    //pilihSoal(current_number+1);
+                    let options = lembar_soal[current_number].option;
+                    let benar = '';
+                    options.forEach(element => {
+                        if (element['is_true'] == 1) {
+                            benar = element['title'];
+                        }
+                    });
+                    Swal({
+                        title: 'Jawaban Anda Salah!',
+                        html: 'Jawaban yang benar adalah <b style="color:green;">'+benar+'</b>',
+                        type: 'error',
+                        confirmButtonText: 'Ok'
+                        }).then(function(){
+                            if (current_number+1 == lembar_soal.length) {
+                                send_result();
+                            }else{
+                                pilihSoal(current_number+1);
+                            }
+                        })
+
+                    console.log('skor '+skor);
                 });
 
-                $("#prev-question").click(function(){
-                    pilihSoal(current_number-1);
-                });
+                // $("#prev-question").click(function(){
+                //     pilihSoal(current_number-1);
+                // });
             });
     </script>
 @endpush

@@ -12,15 +12,21 @@ class soalSeed extends Seeder
     public function run()
     {
         //
-        $i = 0;
+        
         DB::table('soal')->truncate();
         $faker = Faker::create();
-        while($i < 45){
-            App\Model\Soal::create([
-                'topik_id'=>rand(1,9),
-                'title' => $faker->sentence
-            ]);
-            $i++;
+        $topik = \App\Model\Topik::all();
+        foreach ($topik as $key) {
+            # code...
+            $i = 1;
+            while($i < 6){
+                App\Model\Soal::create([
+                    'topik_id'=>$key->id,
+                    'title' => $faker->sentence
+                ]);
+                $i++;
+            }
         }
+
     }
 }

@@ -12,10 +12,11 @@ class topikSeed extends Seeder
     public function run()
     {
         //
-        $i = 0;
+
         DB::table('topik')->truncate();
         $faker = Faker::create();
-        while($i < 9){
+        $i = 1;
+        while($i < 10){
             App\Model\Topik::create([
                 'nama_topik'=>$faker->sentence,
                 'icon' => $faker->sentence,
