@@ -68,7 +68,7 @@
                                         </li>
                                     @else
                                         <li>
-                                            <a href="/home">{{Auth::user()->name}}</a>
+                                            <a href="/member">{{Auth::user()->name}}</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('logout') }}"

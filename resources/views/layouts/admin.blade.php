@@ -40,7 +40,7 @@
                             <!--<span class="logo-large"><i class="mdi mdi-radar"></i> Abstack</span>-->
                         <!--</a>-->
                         <!-- Image Logo -->
-                        <a href="index.html" class="logo">
+                        <a href="/adashboard" class="logo">
                             <img src="{{asset('asset/images/logo/logo.png')}}" alt="" height="26" class="logo-small">
                             <img src="{{asset('asset/images/logo/logo.png')}}" alt="" height="16" class="logo-large">
                         </a>

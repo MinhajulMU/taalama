@@ -20,7 +20,7 @@
         <a href="/topik">
             <button class="btns" style="background-color: #f78616;color:#fff;">Main Lagi</button>
         </a>
-        <a href="#">
+        <a href="/member">
             <button class="btns">History Nilai</button>
         </a>
     </div>

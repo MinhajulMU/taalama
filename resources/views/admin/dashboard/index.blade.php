@@ -40,8 +40,8 @@
     <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
         <div class="card-box tilebox-one">
             <i class="fi-briefcase float-right"></i>
-            <h6 class="text-muted text-uppercase mb-3">Option</h6>
-            <h4 class="mb-3" data-plugin="counterup">{{$opsi}} </h4>
+            <h6 class="text-muted text-uppercase mb-3">Track User</h6>
+            <h4 class="mb-3" data-plugin="counterup">{{$track_user}} </h4>
  
         </div>
     </div>

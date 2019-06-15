@@ -29,7 +29,7 @@ Route::get('/topik', function () {
     return view('front.topik',$data);
 });
 
-Route::group(['middleware' => 'auth'],function(){
+Route::group(['middleware' => 'auth','role:User'],function(){
     Route::get('/materi/{id}', function ($id) {
         $data['materi'] = \App\Model\Materi::where('topik_id',$id)->get();
         if (count($data['materi']) > 0) {
@@ -49,25 +49,17 @@ Route::group(['middleware' => 'auth'],function(){
         $data['topik'] = $data['nilai']->topik->nama_topik;
         return view('front.selesai',$data);
     });
-});
-
-Route::get('/benar', function () {
-    return view('front.benar');
-});
-Route::get('/salah', function () {
-    return view('front.salah');
-});
-Route::get('/daftar', function () {
-    return view('front.register');
-});
-Route::get('/masuk', function () {
-    return view('front.login');
+    Route::get('/member',function(){
+        $data['track'] = \App\Model\trackUser::where('user_id',Auth::user()->id)->orderBy('id','DESC')->simplePaginate(5);
+        return view('front.member',$data);
+    });
 });
 
 
 Route::group(['middleware' => 'auth','role:Administrator'], function(){
     Route::get('/adashboard',function(){
         $data['users'] = \DB::table('users')->count();
+        $data['track_user'] = \DB::table('track_user')->count();
         $data['topik'] = \DB::table('topik')->count();
         $data['soal'] = \DB::table('soal')->count();
         $data['opsi'] = \DB::table('option')->count();
