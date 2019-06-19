@@ -26,7 +26,7 @@ class materiController extends Controller
     }
     public function delete(Request $request){
         $validator = Validator::make($request->all(),[
-            "id"=> "required|numeric|exists:users,id"
+            "id"=> "required|numeric|exists:materi,id"
         ]);
         $response = ['ok'=>true];
         if($validator->fails()){

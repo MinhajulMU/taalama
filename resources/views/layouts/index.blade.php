@@ -25,8 +25,47 @@
                 <div class="pushy-content">
                     <ul>
                         <li class="pushy-link"><a href="/">Home</a></li>
-                        <li class="pushy-link"><a href="/register">Register</a></li>
-                        <li class="pushy-link"><a href="/login">Login</a></li>
+                        <li>
+                            <a href="/leaderboard">Leader Board</a>
+                        </li>
+                        @if (Auth::check())
+                                    @if (Auth::user()->hasRole('Administrator'))
+                                        <li class="pushy-link">
+                                            <a href="/adashboard">{{Auth::user()->name}} </a>
+                                        </li>
+                                        <li class="pushy-link">
+                                            <a  href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    <i class="fi-power"></i> <span>Logout</span>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </a>
+                                        </li>
+                                    @else
+                                        <li class="pushy-link">
+                                            <a href="/member">{{Auth::user()->name}}</a>
+                                        </li>
+                                        <li class="pushy-link">
+                                            <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    <i class="fi-power"></i> <span>Logout</span>
+                                </a>
+                                        </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>                              
+                                    @endif
+                                @else
+                                    <li class="pushy-link">
+                                        <a href="/register">Register</a>
+                                    </li>
+                                    <li class="pushy-link">
+                                        <a href="/login">Login</a>
+                                    </li>
+                                @endif
                     </ul>
                 </div>
             </nav>
@@ -50,6 +89,9 @@
                             <ul>
                                 <li>
                                     <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/leaderboard">Leader Board</a>
                                 </li>
                                 @if (Auth::check())
                                     @if (Auth::user()->hasRole('Administrator'))

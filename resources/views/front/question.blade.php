@@ -44,6 +44,7 @@
     <script>
             var skor = 0;
             var topik_id = window.location.pathname.split('/')[2];
+            
             var lembar_soal = JSON.parse(`{!! $question !!}`);
             if(localStorage.getItem('soal_current_number') == null){
                 localStorage.setItem('soal_current_number',0);
@@ -64,7 +65,7 @@
                             <div class="box1 option`+i+`">
 
                                 <div class="frame">
-                                    <img src="storage/`+value['icon']+`" alt="">
+                                    <img src="`+window.location.origin+`/storage/`+value['icon']+`" alt="">
                                 </div>
                                 <h3><b>`+value['title']+`</b></h3>
                             </div>
@@ -82,7 +83,7 @@
 
                 $.ajax({
                         type: "POST",
-                        url: 'http://localhost:8000/ujian/submit',
+                        url: window.location.origin+'/ujian/submit',
                         data: {
                             user_id: {{Auth::user()->id}},
                             nilai: nilai,
@@ -91,7 +92,7 @@
                         method: 'post',
                         success: function (response) {
                             console.log(response.id);
-                            window.location.href = "http://localhost:8000/nilai/"+response.id;
+                            window.location.href = window.location.origin+"/nilai/"+response.id;
                         },
                         error: function(error){
                             console.log(error);

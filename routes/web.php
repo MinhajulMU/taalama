@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('front.index');
 });
@@ -28,7 +27,11 @@ Route::get('/topik', function () {
     $data['topik'] = \App\Model\Topik::inRandomOrder()->get();
     return view('front.topik',$data);
 });
-
+Route::get('/leaderboard',function(){
+    $data['score'] = DB::table('track_user')->select(DB::raw('users.name as nama_lengkap, user_id, sum(score) as jumlah_score'))->groupBy('user_id')->join('users','users.id','=','track_user.user_id')->limit(6)->get();
+//    $data['score'] = DB::raw("SELECT user_id, sum(score) as jumlah_score FROM track_user GROUP BY user_id");
+    return view('front.leaderboard',$data);
+});
 Route::group(['middleware' => 'auth','role:User'],function(){
     Route::get('/materi/{id}', function ($id) {
         $data['materi'] = \App\Model\Materi::where('topik_id',$id)->get();

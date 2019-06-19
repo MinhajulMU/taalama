@@ -30,7 +30,9 @@
                 <br>
                 <h2>Cara Mudah Belajar Agama Islam</h2>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quam aliquam, blanditiis doloribus quod dolor, dicta assumenda nihil sit fugiat officiis facilis asperiores optio obcaecati sed. Impedit fuga eius vel.
+                    Dengan kemudahan mengakses berbagai macam konten islamic
+sehingga memudahkan dalam belajar agama islam tanpa perlu
+di pusingkan waktu dan tempat
                 </p>
             </div>
         </div>
